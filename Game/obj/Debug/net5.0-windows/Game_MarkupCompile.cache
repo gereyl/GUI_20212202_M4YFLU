@@ -1,5 +1,5 @@
 ﻿Game
-1.0.0.0
+
 
 winexe
 C#
@@ -12,7 +12,7 @@ TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 C:\Users\faszxd\Desktop\gui\Game\Game\App.xaml
 11407045341
 
-8-380663690
+6-1352536100
 193-1891726104
 MainWindow.xaml;
 
