@@ -58,10 +58,14 @@ namespace Game
         {
             //if (e.OriginalSource is Rect)
             //{
-               
-            double x = e.GetPosition((IInputElement)sender).X;
-            double y = e.GetPosition((IInputElement)sender).Y;
+
+            //double x = e.GetPosition((IInputElement)sender).X;
+            //double y = e.GetPosition((IInputElement)sender).Y;
             //MessageBox.Show(string.Format("X: {0} Y: {1}",x.ToString(),y.ToString()));
+
+            var point = Mouse.GetPosition(Application.Current.MainWindow);
+            double x = point.X;
+            double y = point.Y;
 
             logic.SetUpCoordinates(x, y);
 
@@ -71,6 +75,7 @@ namespace Game
             //}
         }
 
-        
+       
+
     }
 }

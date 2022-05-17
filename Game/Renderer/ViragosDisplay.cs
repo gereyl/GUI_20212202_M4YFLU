@@ -18,6 +18,7 @@ namespace Game.Renderer
         Size area;
         public Rect correctRect { get; set; }
         Brush correctBrush;
+        
         public void SetupSizes(Size area)
         {
             this.area = area;
@@ -28,6 +29,7 @@ namespace Game.Renderer
         {
             this.model = model;
             this.model.Changed += (sender, eventargs) => this.InvalidateVisual();
+
         }
 
         public Brush HatterBrush
@@ -119,7 +121,7 @@ namespace Game.Renderer
             #region also viragok
             r = new Random();
             flowers = new List<Rect>();
-            
+
 
             Rect elso = new Rect(area.Width / 5, area.Height - 100, 50, 50);
             Rect masodik = new Rect((area.Width / 5) * 2, area.Height - 100, 50, 50);
@@ -140,7 +142,7 @@ namespace Game.Renderer
             flowers.Add(masodik);
             flowers.Add(harmadik);
             flowers.Add(negyedik);
-            
+
 
             int[] array = new int[8];
             for (int i = 0; i < 8; i++)
@@ -171,13 +173,13 @@ namespace Game.Renderer
             Rect kek2 = new Rect((area.Width / 5) * 2, area.Height / 8, 50, 50);
             Rect koszoru2 = new Rect((area.Width / 5) * 3, area.Height / 8, 50, 50);
             Rect level2 = new Rect((area.Width / 5) * 4, area.Height / 8, 50, 50);
-            
+
 
             flowers2.Add(tuzvirag2);
             flowers2.Add(kek2);
             flowers2.Add(koszoru2);
             flowers2.Add(level2);
-            
+
 
             int rnd = r.Next(0, 3);
 
@@ -193,17 +195,20 @@ namespace Game.Renderer
             correctBrush = usedBrushes[r.Next(0, 3)];
             drawingContext.DrawRectangle(correctBrush, null, correctRect);
 
+            model.SetUpRect(correctRect);
+
             #endregion
 
-            model.SetUpRect(correctRect);
-            
+
+
         }
 
-       
 
-        
-
-        
 
     }
+
+
+
+
+
 }

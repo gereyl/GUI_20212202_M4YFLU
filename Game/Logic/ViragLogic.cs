@@ -1,4 +1,5 @@
 ﻿using Game.Renderer;
+using Microsoft.Toolkit.Mvvm.ComponentModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,9 @@ namespace Game.Logic
         System.Windows.Size area;
         double x;
         double y;
+        
+
+        
 
         public void SetupSizes(System.Windows.Size area)
         {
@@ -22,12 +26,15 @@ namespace Game.Logic
             
         }
 
-        public Rect correct { get; set; }
-
         public void SetUpRect(Rect rect)
         {
             this.correct = rect;
         }
+        public Rect correct { get; set; }
+
+        
+
+
 
         public void SetUpCoordinates(double x,double y)
         {
@@ -38,7 +45,6 @@ namespace Game.Logic
 
         public bool Correct(Rect rect, double x, double y)
         {
-
             double rectx = rect.X;
             double recty = rect.Y;
 
@@ -56,17 +62,17 @@ namespace Game.Logic
             }
         }
 
-
+        
+        
         public void GameOn()
         {
             int z = 0;
-            while (z < 3)
-            {
-                if (Correct(correct, x, y))
-                {
-                    z++;
-                }
-            }
+            
+           if (Correct(correct, x, y))
+           {
+                    
+           }
+            
             //GameOver();
         }
 

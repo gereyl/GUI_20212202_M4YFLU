@@ -8,7 +8,7 @@ namespace Game.Logic
         event EventHandler GameOver;
         event EventHandler Changed;
         public Rect correct { get; set; }
-        public void SetUpRect(Rect rect);
+        public  void SetUpRect(Rect rect) ;
         public bool Correct(Rect rect, double x, double y);
     }
 }
