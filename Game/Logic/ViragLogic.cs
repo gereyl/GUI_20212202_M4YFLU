@@ -90,6 +90,10 @@ namespace Game.Logic
             {
                 MessageBox.Show("rossz");
                 hp.Hp--;
+                if (hp.Hp <= 0)
+                {
+                    GameOver.Invoke(this, null);
+                }
                 return false;
 
             }
@@ -99,22 +103,15 @@ namespace Game.Logic
 
         public void GameOn()
         {
-            // int z = 0;
-
-
-
             Correct(correctAnswer, x, y);
 
 
-            //GameOver();
+            
         }
 
 
 
-        //public void GameOver()
-        //{
-
-        //}
+        
 
 
 

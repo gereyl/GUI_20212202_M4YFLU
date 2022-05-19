@@ -37,7 +37,7 @@ namespace Game
                 if (time == TimeSpan.Zero)
                 {
                     timer.Stop();
-                    MessageBox.Show("édesanyád");
+                    MessageBox.Show("Lejárt az időd!");
                 }
                 time = time.Add(TimeSpan.FromSeconds(-1));
             }, Application.Current.Dispatcher);
@@ -53,6 +53,8 @@ namespace Game
             viragosdisplay.SetupSizes(new Size(grid.ActualWidth, grid.ActualHeight));
             logic.SetupSizes(new System.Windows.Size((int)grid.ActualWidth, (int)grid.ActualHeight));
             tbHP.Text = ("Maradék élet: " + logic.hp.Hp);
+            
+
         }
 
         private void Logic_GameOver(object? sender, EventArgs e)
