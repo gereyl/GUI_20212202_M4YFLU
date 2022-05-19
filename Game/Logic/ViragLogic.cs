@@ -83,6 +83,7 @@ namespace Game.Logic
             if ((x - correctX) < 100 && (y - correctY) < 100 && x > correctX && y > correctY)
             {
                 MessageBox.Show("anyad");
+
                 return true;
 
             }

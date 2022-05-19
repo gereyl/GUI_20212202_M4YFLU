@@ -87,7 +87,9 @@ namespace Game
 
             tbHP.Text = ("Maradék élet: " + logic.hp.Hp);
 
-            
+            WindowState = WindowState.Normal;
+            WindowState = WindowState.Maximized;
+
         }
 
 

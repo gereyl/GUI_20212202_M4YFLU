@@ -107,7 +107,6 @@ namespace Game.Renderer
 
 
 
-
         List<Rect> flowers;
 
         protected override void OnRender(DrawingContext drawingContext)
@@ -197,6 +196,8 @@ namespace Game.Renderer
                 drawingContext.DrawRectangle(correctBrush, null, correctRect);
 
                 #endregion
+
+                
             }
 
         }

@@ -6,8 +6,9 @@
         xmlns:local="clr-namespace:Game"
         xmlns:ren="clr-namespace:Game.Renderer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded" SizeChanged="Window_SizeChanged" >
-    <Grid x:Name="grid" MouseLeftButtonDown="grid_MouseLeftButtonDown" >
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded" SizeChanged="Window_SizeChanged" WindowState="Maximized" WindowStyle="None">
+    
+    <Grid x:Name="grid" MouseLeftButtonDown="grid_MouseLeftButtonDown"  >
         <ren:ViragosDisplay x:Name="viragosdisplay"/>
         <StackPanel>
             <TextBlock Name="tbTime" HorizontalAlignment="Center" FontSize="20" Foreground="White" Background="Chocolate"/>
