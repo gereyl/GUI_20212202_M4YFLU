@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <None Remove="Images\hatter.png" />
+    <None Remove="Images\hatter2.png" />
     <None Remove="Images\kek.png" />
     <None Remove="Images\koszoru.png" />
     <None Remove="Images\level.png" />
@@ -20,6 +21,9 @@
 
   <ItemGroup>
     <Content Include="Images\hatter.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\hatter2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\kek.png">

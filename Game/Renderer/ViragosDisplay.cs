@@ -37,7 +37,7 @@ namespace Game.Renderer
         {
             get
             {
-                return new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", "hatter.png"), UriKind.RelativeOrAbsolute)));
+                return new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", "hatter2.png"), UriKind.RelativeOrAbsolute)));
             }
         }
 
@@ -126,10 +126,10 @@ namespace Game.Renderer
                 flowers = new List<Rect>();
 
 
-                Rect elso = new Rect(area.Width / 5, area.Height - 100, 50, 50);
-                Rect masodik = new Rect((area.Width / 5) * 2, area.Height - 100, 50, 50);
-                Rect harmadik = new Rect((area.Width / 5) * 3, area.Height - 100, 50, 50);
-                Rect negyedik = new Rect((area.Width / 5) * 4, area.Height - 100, 50, 50);
+                Rect elso = new Rect(area.Width / 5, area.Height - 200, 100, 100);
+                Rect masodik = new Rect((area.Width / 5) * 2, area.Height - 200, 100, 100);
+                Rect harmadik = new Rect((area.Width / 5) * 3, area.Height - 200, 100, 100);
+                Rect negyedik = new Rect((area.Width / 5) * 4, area.Height - 200, 100, 100);
 
                 List<Brush> FlowerBrushes = new List<Brush>();
                 FlowerBrushes.Add(TuzviragBrush);
@@ -170,10 +170,10 @@ namespace Game.Renderer
 
 
                 List<Rect> flowers2 = new List<Rect>();
-                Rect tuzvirag2 = new Rect(area.Width / 5, area.Height / 8, 50, 50);
-                Rect kek2 = new Rect((area.Width / 5) * 2, area.Height / 8, 50, 50);
-                Rect koszoru2 = new Rect((area.Width / 5) * 3, area.Height / 8, 50, 50);
-                Rect level2 = new Rect((area.Width / 5) * 4, area.Height / 8, 50, 50);
+                Rect tuzvirag2 = new Rect(area.Width / 5, area.Height / 8, 100, 100);
+                Rect kek2 = new Rect((area.Width / 5) * 2, area.Height / 8, 100, 100);
+                Rect koszoru2 = new Rect((area.Width / 5) * 3, area.Height / 8, 100, 100);
+                Rect level2 = new Rect((area.Width / 5) * 4, area.Height / 8, 100, 100);
 
 
                 flowers2.Add(tuzvirag2);
@@ -198,11 +198,6 @@ namespace Game.Renderer
 
                 #endregion
             }
-
-
-
-
-
 
         }
 

@@ -80,7 +80,7 @@ namespace Game.Logic
                 correctX = (area.Width / 5) * 4;
             }
 
-            if ((x - correctX) < 50 && (y - correctY) < 50 && x > correctX && y > correctY)
+            if ((x - correctX) < 100 && (y - correctY) < 100 && x > correctX && y > correctY)
             {
                 MessageBox.Show("anyad");
                 return true;

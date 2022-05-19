@@ -77,12 +77,6 @@ namespace Game
 
         private void grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            //if (e.OriginalSource is Rect)
-            //{
-
-            //double x = e.GetPosition((IInputElement)sender).X;
-            //double y = e.GetPosition((IInputElement)sender).Y;
-            //MessageBox.Show(string.Format("X: {0} Y: {1}",x.ToString(),y.ToString()));
 
             var point = Mouse.GetPosition(Application.Current.MainWindow);
             double x = point.X;
@@ -93,7 +87,7 @@ namespace Game
 
             tbHP.Text = ("Maradék élet: " + logic.hp.Hp);
 
-            //}
+            
         }
 
 
