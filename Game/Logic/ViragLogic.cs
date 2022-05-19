@@ -1,5 +1,6 @@
 ﻿using Game.Helpers;
 using Game.Renderer;
+using Game.Services;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using System;
 using System.Collections.Generic;
@@ -14,19 +15,16 @@ namespace Game.Logic
     {
         public event EventHandler GameOver;
         public event EventHandler Changed;
+        public event EventHandler NextLevel;
+
         System.Windows.Size area;
         //static Random r;
         double x;
         double y;
         public HealthPoint hp = new HealthPoint();
         public Score score = new Score();
-
+        ITeglaService teglaService;
         public int correctAnswer { get; set; }
-
-
-
-
-
 
         public void SetupSizes(System.Windows.Size area)
         {
@@ -39,10 +37,6 @@ namespace Game.Logic
             this.correct = rect;
         }
         public Rect correct { get; set; }
-
-
-
-
 
         public void SetUpCoordinates(int chosen, double x, double y)
         {
@@ -87,7 +81,7 @@ namespace Game.Logic
                 score.ScorePoint++;
                 if (score.ScorePoint == 3)
                 {
-                    GameOver.Invoke(this, null);
+                    NextLevel.Invoke(this, null);
                 }
                 return true;
 
@@ -114,13 +108,6 @@ namespace Game.Logic
 
             
         }
-
-
-
-        
-
-
-
 
 
 

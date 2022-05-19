@@ -29,7 +29,7 @@ namespace Game
         {
             InitializeComponent();
 
-            time = new TimeSpan(1000000000);
+            time = new TimeSpan(150000000);
 
             timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
             {
@@ -37,7 +37,9 @@ namespace Game
                 if (time == TimeSpan.Zero)
                 {
                     timer.Stop();
-                    MessageBox.Show("Lejárt az időd!");
+                    //MessageBox.Show("Lejárt az időd!");
+                    Logic_GameOver(this, null);
+
                 }
                 time = time.Add(TimeSpan.FromSeconds(-1));
             }, Application.Current.Dispatcher);
@@ -49,11 +51,20 @@ namespace Game
         {
             logic = new ViragLogic();
             logic.GameOver += Logic_GameOver;
+            logic.NextLevel += Logic_NextLevel;
             viragosdisplay.SetupModel(logic);
             viragosdisplay.SetupSizes(new Size(grid.ActualWidth, grid.ActualHeight));
             logic.SetupSizes(new System.Windows.Size((int)grid.ActualWidth, (int)grid.ActualHeight));
             tbHP.Text = ("Maradék élet: " + logic.hp.Hp);
             tbScore.Text = ("Pontjaid: " + logic.score.ScorePoint + "/3");
+
+        }
+
+        private void Logic_NextLevel(object sender, EventArgs e)
+        {
+            timer.Stop();
+            TeglaWindow win2 = new TeglaWindow();
+            win2.Show();
 
         }
 
