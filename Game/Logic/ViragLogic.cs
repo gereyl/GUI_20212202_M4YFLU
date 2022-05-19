@@ -19,6 +19,8 @@ namespace Game.Logic
         double x;
         double y;
         public HealthPoint hp = new HealthPoint();
+        public Score score = new Score();
+
         public int correctAnswer { get; set; }
 
 
@@ -82,20 +84,23 @@ namespace Game.Logic
 
             if ((x - correctX) < 100 && (y - correctY) < 100 && x > correctX && y > correctY)
             {
-                MessageBox.Show("anyad");
-
+                score.ScorePoint++;
+                if (score.ScorePoint == 3)
+                {
+                    GameOver.Invoke(this, null);
+                }
                 return true;
 
             }
             else
             {
-                MessageBox.Show("rossz");
                 hp.Hp--;
                 if (hp.Hp <= 0)
                 {
                     GameOver.Invoke(this, null);
                 }
                 return false;
+
 
             }
         }

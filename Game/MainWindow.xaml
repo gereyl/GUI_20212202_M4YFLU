@@ -13,6 +13,7 @@
         <StackPanel>
             <TextBlock Name="tbTime" HorizontalAlignment="Center" FontSize="20" Foreground="White" Background="Chocolate"/>
             <TextBlock Name="tbHP" HorizontalAlignment="Center" FontSize="20" Foreground="White" Background="Chocolate"/>
+            <TextBlock Name="tbScore" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Foreground="White" Background="Chocolate"/>
         </StackPanel>
     </Grid>
 </Window>

@@ -53,7 +53,7 @@ namespace Game
             viragosdisplay.SetupSizes(new Size(grid.ActualWidth, grid.ActualHeight));
             logic.SetupSizes(new System.Windows.Size((int)grid.ActualWidth, (int)grid.ActualHeight));
             tbHP.Text = ("Maradék élet: " + logic.hp.Hp);
-            
+            tbScore.Text = ("Pontjaid: " + logic.score.ScorePoint + "/3");
 
         }
 
@@ -86,9 +86,10 @@ namespace Game
             logic.SetUpCoordinates(chosen, x, y);
 
             tbHP.Text = ("Maradék élet: " + logic.hp.Hp);
-
+            tbScore.Text = ("Pontjaid: " + logic.score.ScorePoint + "/3");
             WindowState = WindowState.Normal;
             WindowState = WindowState.Maximized;
+
 
         }
 
