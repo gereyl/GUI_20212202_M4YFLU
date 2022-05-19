@@ -10,7 +10,7 @@
     
     <Grid x:Name="grid" MouseLeftButtonDown="grid_MouseLeftButtonDown"  >
         <ren:ViragosDisplay x:Name="viragosdisplay"/>
-        <StackPanel>
+        <StackPanel VerticalAlignment="Center">
             <TextBlock Name="tbTime" HorizontalAlignment="Center" FontSize="20" Foreground="White" Background="Chocolate"/>
             <TextBlock Name="tbHP" HorizontalAlignment="Center" FontSize="20" Foreground="White" Background="Chocolate"/>
             <TextBlock Name="tbScore" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Foreground="White" Background="Chocolate"/>

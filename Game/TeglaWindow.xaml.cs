@@ -11,21 +11,21 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 
 namespace Game
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for TeglaWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class TeglaWindow : Window
     {
-        ViragLogic logic;
+        TeglaLogic logic;
+        public ViragLogic logic2;
         DispatcherTimer timer;
         TimeSpan time;
-        public MainWindow()
+        public TeglaWindow(ViragLogic logic2)
         {
             InitializeComponent();
 
@@ -39,72 +39,59 @@ namespace Game
                     timer.Stop();
                     //MessageBox.Show("Lejárt az időd!");
                     Logic_GameOver(this, null);
-
                 }
                 time = time.Add(TimeSpan.FromSeconds(-1));
             }, Application.Current.Dispatcher);
 
             timer.Start();
+            this.logic2 = logic2;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            logic = new ViragLogic();
+            logic = new TeglaLogic(logic2.hp);
             logic.GameOver += Logic_GameOver;
-            logic.NextLevel += Logic_NextLevel;
-            viragosdisplay.SetupModel(logic);
-            viragosdisplay.SetupSizes(new Size(grid.ActualWidth, grid.ActualHeight));
-            logic.SetupSizes(new System.Windows.Size((int)grid.ActualWidth, (int)grid.ActualHeight));
-            tbHP.Text = ("Maradék élet: " + logic.hp.Hp);
-            tbScore.Text = ("Pontjaid: " + logic.score.ScorePoint + "/3");
-
+            tegladisplay.SetupModel(logic);
+            tegladisplay.SetupSizes(new Size(grid2.ActualWidth, grid2.ActualHeight));
+            logic.SetupSizes(new System.Windows.Size((int)grid2.ActualWidth, (int)grid2.ActualHeight));
+            tbHP.Text = ("Maradék élet: " + logic2.hp.Hp);
+            tbScore.Text = ("Pontjaid: " + logic2.score.ScorePoint + "/3");
         }
 
-        private void Logic_NextLevel(object sender, EventArgs e)
-        {
-            timer.Stop();
-            TeglaWindow win2 = new TeglaWindow(logic);
-            win2.Show();
-            this.Close();
-        }
-
-        private void Logic_GameOver(object? sender, EventArgs e)
+        private void Logic_GameOver(object sender, EventArgs e)
         {
             var result = MessageBox.Show("Game Over");
             if (result == MessageBoxResult.OK)
             {
                 this.Close();
+
             }
         }
+
+
 
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             if (logic != null)
             {
-                viragosdisplay.SetupSizes(new Size(grid.ActualWidth, grid.ActualHeight));
-                logic.SetupSizes(new System.Windows.Size((int)grid.ActualWidth, (int)grid.ActualHeight));
+                tegladisplay.SetupSizes(new Size(grid2.ActualWidth, grid2.ActualHeight));
+                logic.SetupSizes(new System.Windows.Size((int)grid2.ActualWidth, (int)grid2.ActualHeight));
             }
         }
 
-        private void grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void grid2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-
             var point = Mouse.GetPosition(Application.Current.MainWindow);
             double x = point.X;
             double y = point.Y;
-            int chosen = viragosdisplay.rnd;
+            //int chosen = tegladisplay.rnd;
 
-            logic.SetUpCoordinates(chosen, x, y);
+            logic.SetUpCoordinates(x, y);
 
             tbHP.Text = ("Maradék élet: " + logic.hp.Hp);
             tbScore.Text = ("Pontjaid: " + logic.score.ScorePoint + "/3");
             WindowState = WindowState.Normal;
             WindowState = WindowState.Maximized;
-
-
         }
-
-
-
     }
 }

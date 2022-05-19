@@ -1,0 +1,19 @@
+﻿<Window x:Class="Game.TeglaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Game"
+        xmlns:ren="clr-namespace:Game.Renderer"
+        mc:Ignorable="d"
+        Title="TeglaWindow" Height="450" Width="800" SizeChanged="Window_SizeChanged" Loaded="Window_Loaded" WindowState="Maximized" WindowStyle="None">
+    <Grid x:Name="grid2">
+        <ren:TeglaDisplay x:Name="tegladisplay"/>
+        <StackPanel VerticalAlignment="Center">
+            <TextBlock Name="tbTime" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="20" Foreground="White" Background="Chocolate"/>
+            <TextBlock Name="tbHP" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="20" Foreground="White" Background="Chocolate"/>
+            <TextBlock Name="tbScore" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="20" Foreground="White" Background="Chocolate"/>
+        </StackPanel>
+        
+    </Grid>
+</Window>

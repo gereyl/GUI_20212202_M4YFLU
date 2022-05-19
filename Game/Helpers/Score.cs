@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game.Helpers
 {
-    class Score
+    public class Score
     {
 
         public int ScorePoint { get; set; }
@@ -14,6 +14,11 @@ namespace Game.Helpers
         public Score()
         {
             ScorePoint = 0;
+        }
+
+        public void Reset()
+        {
+            this.ScorePoint = 0;
         }
     }
 }

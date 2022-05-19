@@ -4,15 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Game.Helpers
+namespace Game.Services
 {
-    public class HealthPoint
+    public class ITeglaViaWindow : ITeglaService
     {
-        public int Hp { get; set; }
-
-        public HealthPoint()
+        public void Open()
         {
-            Hp = 5;
+            //ablak fel
         }
     }
 }
