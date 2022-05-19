@@ -18,7 +18,8 @@ namespace Game.Renderer
         Size area;
         public Rect correctRect { get; set; }
         Brush correctBrush;
-        
+        public int rnd { get; set; }
+
         public void SetupSizes(Size area)
         {
             this.area = area;
@@ -113,91 +114,93 @@ namespace Game.Renderer
         {
             base.OnRender(drawingContext);
 
-            drawingContext.DrawRectangle(Brushes.White, null, new Rect(0, 0, area.Width, area.Height));
-
-            model = new ViragLogic();
-
-
-            #region also viragok
-            r = new Random();
-            flowers = new List<Rect>();
-
-
-            Rect elso = new Rect(area.Width / 5, area.Height - 100, 50, 50);
-            Rect masodik = new Rect((area.Width / 5) * 2, area.Height - 100, 50, 50);
-            Rect harmadik = new Rect((area.Width / 5) * 3, area.Height - 100, 50, 50);
-            Rect negyedik = new Rect((area.Width / 5) * 4, area.Height - 100, 50, 50);
-
-            List<Brush> FlowerBrushes = new List<Brush>();
-            FlowerBrushes.Add(TuzviragBrush);
-            FlowerBrushes.Add(KekBrush);
-            FlowerBrushes.Add(KoszoruBrush);
-            FlowerBrushes.Add(LevelBrush);
-            FlowerBrushes.Add(LotuszBrush);
-            FlowerBrushes.Add(PiriBrush);
-            FlowerBrushes.Add(PitypangBrush);
-            FlowerBrushes.Add(RoseBrush);
-
-            flowers.Add(elso);
-            flowers.Add(masodik);
-            flowers.Add(harmadik);
-            flowers.Add(negyedik);
-
-
-            int[] array = new int[8];
-            for (int i = 0; i < 8; i++)
+            if (area.Width > 0 && area.Height > 0 && model != null)
             {
-                array[i] = i;
-            }
-
-            var shuffled = array.OrderBy(a => r.Next()).ToList();
-
-            List<Brush> usedBrushes = new List<Brush>();
-            for (int i = 0; i < 4; i++)
-            {
-                drawingContext.DrawRectangle(FlowerBrushes[shuffled[i]], null, flowers[i]);
-                usedBrushes.Add(FlowerBrushes[shuffled[i]]);
-
-            }
+                drawingContext.DrawRectangle(HatterBrush, null, new Rect(0, 0, area.Width, area.Height));
+                model = new ViragLogic();
 
 
 
-
-            #endregion
-
-            #region felso viragok
-
-
-            List<Rect> flowers2 = new List<Rect>();
-            Rect tuzvirag2 = new Rect(area.Width / 5, area.Height / 8, 50, 50);
-            Rect kek2 = new Rect((area.Width / 5) * 2, area.Height / 8, 50, 50);
-            Rect koszoru2 = new Rect((area.Width / 5) * 3, area.Height / 8, 50, 50);
-            Rect level2 = new Rect((area.Width / 5) * 4, area.Height / 8, 50, 50);
+                #region also viragok
+                r = new Random();
+                flowers = new List<Rect>();
 
 
-            flowers2.Add(tuzvirag2);
-            flowers2.Add(kek2);
-            flowers2.Add(koszoru2);
-            flowers2.Add(level2);
+                Rect elso = new Rect(area.Width / 5, area.Height - 100, 50, 50);
+                Rect masodik = new Rect((area.Width / 5) * 2, area.Height - 100, 50, 50);
+                Rect harmadik = new Rect((area.Width / 5) * 3, area.Height - 100, 50, 50);
+                Rect negyedik = new Rect((area.Width / 5) * 4, area.Height - 100, 50, 50);
+
+                List<Brush> FlowerBrushes = new List<Brush>();
+                FlowerBrushes.Add(TuzviragBrush);
+                FlowerBrushes.Add(KekBrush);
+                FlowerBrushes.Add(KoszoruBrush);
+                FlowerBrushes.Add(LevelBrush);
+                FlowerBrushes.Add(LotuszBrush);
+                FlowerBrushes.Add(PiriBrush);
+                FlowerBrushes.Add(PitypangBrush);
+                FlowerBrushes.Add(RoseBrush);
+
+                flowers.Add(elso);
+                flowers.Add(masodik);
+                flowers.Add(harmadik);
+                flowers.Add(negyedik);
 
 
-            int rnd = r.Next(0, 3);
-
-            for (int i = 4; i < 8; i++)
-            {
-                if ((i - 4) != rnd)
+                int[] array = new int[8];
+                for (int i = 0; i < 8; i++)
                 {
-                    drawingContext.DrawRectangle(FlowerBrushes[shuffled[i]], null, flowers2[i - 4]);
+                    array[i] = i;
                 }
+
+                var shuffled = array.OrderBy(a => r.Next()).ToList();
+
+                List<Brush> usedBrushes = new List<Brush>();
+                for (int i = 0; i < 4; i++)
+                {
+                    drawingContext.DrawRectangle(FlowerBrushes[shuffled[i]], null, flowers[i]);
+                    usedBrushes.Add(FlowerBrushes[shuffled[i]]);
+
+                }
+
+
+                #endregion
+
+                #region felso viragok
+
+
+                List<Rect> flowers2 = new List<Rect>();
+                Rect tuzvirag2 = new Rect(area.Width / 5, area.Height / 8, 50, 50);
+                Rect kek2 = new Rect((area.Width / 5) * 2, area.Height / 8, 50, 50);
+                Rect koszoru2 = new Rect((area.Width / 5) * 3, area.Height / 8, 50, 50);
+                Rect level2 = new Rect((area.Width / 5) * 4, area.Height / 8, 50, 50);
+
+
+                flowers2.Add(tuzvirag2);
+                flowers2.Add(kek2);
+                flowers2.Add(koszoru2);
+                flowers2.Add(level2);
+
+
+                rnd = model.CorrectAnswer();
+
+                for (int i = 4; i < 8; i++)
+                {
+                    if ((i - 4) != rnd)
+                    {
+                        drawingContext.DrawRectangle(FlowerBrushes[shuffled[i]], null, flowers2[i - 4]);
+                    }
+                }
+
+                correctRect = flowers2[rnd];
+                correctBrush = usedBrushes[r.Next(0, 4)];
+                drawingContext.DrawRectangle(correctBrush, null, correctRect);
+
+                #endregion
             }
 
-            correctRect = flowers2[rnd];
-            correctBrush = usedBrushes[r.Next(0, 3)];
-            drawingContext.DrawRectangle(correctBrush, null, correctRect);
 
-            model.SetUpRect(correctRect);
 
-            #endregion
 
 
 

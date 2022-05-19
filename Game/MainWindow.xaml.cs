@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Game
 {
@@ -22,9 +23,26 @@ namespace Game
     public partial class MainWindow : Window
     {
         ViragLogic logic;
+        DispatcherTimer timer;
+        TimeSpan time;
         public MainWindow()
         {
             InitializeComponent();
+
+            time = new TimeSpan(100000000);
+
+            timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
+            {
+                tbTime.Text = time.ToString("g");
+                if (time == TimeSpan.Zero)
+                {
+                    timer.Stop();
+                    MessageBox.Show("édesanyád");
+                }
+                time = time.Add(TimeSpan.FromSeconds(-1));
+            }, Application.Current.Dispatcher);
+
+            timer.Start();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -34,6 +52,7 @@ namespace Game
             viragosdisplay.SetupModel(logic);
             viragosdisplay.SetupSizes(new Size(grid.ActualWidth, grid.ActualHeight));
             logic.SetupSizes(new System.Windows.Size((int)grid.ActualWidth, (int)grid.ActualHeight));
+            tbHP.Text = ("Maradék élet: " + logic.hp.Hp);
         }
 
         private void Logic_GameOver(object? sender, EventArgs e)
@@ -66,16 +85,16 @@ namespace Game
             var point = Mouse.GetPosition(Application.Current.MainWindow);
             double x = point.X;
             double y = point.Y;
+            int chosen = viragosdisplay.rnd;
 
-            logic.SetUpCoordinates(x, y);
+            logic.SetUpCoordinates(chosen, x, y);
 
-            logic.GameOn();
+            tbHP.Text = ("Maradék élet: " + logic.hp.Hp);
 
-                
             //}
         }
 
-       
+
 
     }
 }
