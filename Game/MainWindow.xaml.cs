@@ -29,7 +29,7 @@ namespace Game
         {
             InitializeComponent();
 
-            time = new TimeSpan(100000000);
+            time = new TimeSpan(1000000000);
 
             timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
             {
