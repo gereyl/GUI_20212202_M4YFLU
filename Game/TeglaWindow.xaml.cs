@@ -22,8 +22,10 @@ namespace Game
     public partial class TeglaWindow : Window
     {
         TeglaLogic logic;
+        public ViragLogic logic2;
         DispatcherTimer timer;
         TimeSpan time;
+        public TeglaWindow(ViragLogic logic2)
         {
             InitializeComponent();
 
@@ -47,11 +49,23 @@ namespace Game
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-             logic.GameOver += Logic_GameOver;
-             tegladisplay.SetupModel(logic);
-             tegladisplay.SetupSizes(new Size(grid2.ActualWidth, grid2.ActualHeight));
-             logic.SetupSizes(new System.Windows.Size((int)grid2.ActualWidth, (int)grid2.ActualHeight));
-             tbHP.Text = ("Maradék élet: " + logic2.hp.Hp);
+            logic = new TeglaLogic(logic2.hp);
+            logic.GameOver += Logic_GameOver;
+            tegladisplay.SetupModel(logic);
+            tegladisplay.SetupSizes(new Size(grid2.ActualWidth, grid2.ActualHeight));
+            logic.SetupSizes(new System.Windows.Size((int)grid2.ActualWidth, (int)grid2.ActualHeight));
+            tbHP.Text = ("Maradék élet: " + logic2.hp.Hp);
+            tbScore.Text = ("Pontjaid: " + logic2.score.ScorePoint + "/3");
+        }
+
+        private void Logic_GameOver(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Game Over");
+            if (result == MessageBoxResult.OK)
+            {
+                this.Close();
+
+            }
         }
 
 
@@ -60,6 +74,8 @@ namespace Game
         {
             if (logic != null)
             {
+                tegladisplay.SetupSizes(new Size(grid2.ActualWidth, grid2.ActualHeight));
+                logic.SetupSizes(new System.Windows.Size((int)grid2.ActualWidth, (int)grid2.ActualHeight));
             }
         }
 
@@ -70,7 +86,10 @@ namespace Game
             double y = point.Y;
             //int chosen = tegladisplay.rnd;
 
+            logic.SetUpCoordinates(x, y);
 
+            tbHP.Text = ("Maradék élet: " + logic.hp.Hp);
+            tbScore.Text = ("Pontjaid: " + logic.score.ScorePoint + "/3");
             WindowState = WindowState.Normal;
             WindowState = WindowState.Maximized;
         }
