@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Media;
 
 namespace Game.Logic
@@ -21,9 +22,17 @@ namespace Game.Logic
         public HealthPoint hp;
         public Score score = new Score();
         Random rnd = new Random();
+        public int[] values { get; set; }
         public int result;
+        public int[] shuffled = new int[7];
 
-        public List<Brush> brickBrushes { get; set; }
+        public int[] correctAnswer()
+        {
+            values = new int[7] { 1,1,2,2,3,3,4};
+            
+            shuffled = values.OrderBy(a => rnd.Next()).ToArray();
+            return shuffled;
+        }
 
         public TeglaLogic()
         {
@@ -51,7 +60,10 @@ namespace Game.Logic
 
         public void Ellenorzes(double x, double y)
         {
-            ;
+
+
+
+            
         }
 
         public void GameOn()

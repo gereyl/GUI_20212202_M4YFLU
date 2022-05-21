@@ -7,7 +7,7 @@
         xmlns:ren="clr-namespace:Game.Renderer"
         mc:Ignorable="d"
         Title="TeglaWindow" Height="450" Width="800" SizeChanged="Window_SizeChanged" Loaded="Window_Loaded" WindowState="Maximized" WindowStyle="None">
-    <Grid x:Name="grid2">
+    <Grid x:Name="grid2" MouseLeftButtonDown="grid2_MouseLeftButtonDown">
         <ren:TeglaDisplay x:Name="tegladisplay"/>
         <StackPanel VerticalAlignment="Center">
             <TextBlock Name="tbTime" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="20" Foreground="White" Background="Chocolate"/>

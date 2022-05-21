@@ -91,6 +91,7 @@ namespace Game.Renderer
                 Rect hatodik = new Rect(area.Width / 3 - 200, area.Height - 900, 400, 150);
                 Rect hetedik = new Rect(area.Width / 3 - 200, area.Height - 1050, 400, 150);
 
+
                 bricks.Add(also);
                 bricks.Add(masodik);
                 bricks.Add(harmadik);
@@ -108,14 +109,31 @@ namespace Game.Renderer
                 brickBrushes.Add(HarmasTeglaBrush);
                 brickBrushes.Add(NegyesTeglaBrush);
 
-                model.brickBrushes = brickBrushes;
 
-                var shuffled = brickBrushes.OrderBy(a => r.Next()).ToList();
+                var shuffled = model.correctAnswer();
 
+                
 
                 for (int i = 0; i < 7; i++)
                 {
-                    drawingContext.DrawRectangle(shuffled[i], null, bricks[i]);
+                    if (shuffled[i] == 1)
+                    {
+                        drawingContext.DrawRectangle(EgyesTeglaBrush, null, bricks[i]);
+                    }
+                    else if (shuffled[i] == 2)
+                    {
+                        drawingContext.DrawRectangle(KettesTeglaBrush, null, bricks[i]);
+                    }
+                    else if (shuffled[i] == 3)
+                    {
+                        drawingContext.DrawRectangle(HarmasTeglaBrush, null, bricks[i]);
+                    }
+                    else if (shuffled[i] == 4)
+                    {
+                        drawingContext.DrawRectangle(NegyesTeglaBrush, null, bricks[i]);
+                    }
+
+
                 }
 
 

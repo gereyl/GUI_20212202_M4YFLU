@@ -83,17 +83,14 @@ namespace Game
 
         private void grid2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            var point = Mouse.GetPosition(Application.Current.MainWindow);
+            var point = Mouse.GetPosition(Window.GetWindow(this));
             double x = point.X;
             double y = point.Y;
-            //int chosen = tegladisplay.rnd;
 
             logic.SetUpCoordinates(x, y);
 
             tbHP.Text = ("Maradék élet: " + logic.hp.Hp);
             tbScore.Text = ("Pontjaid: " + logic.score.ScorePoint + "/3");
-            WindowState = WindowState.Normal;
-            WindowState = WindowState.Maximized;
         }
     }
 }
