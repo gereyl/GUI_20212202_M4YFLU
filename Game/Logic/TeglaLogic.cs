@@ -25,6 +25,7 @@ namespace Game.Logic
         public int[] values { get; set; }
         public int result;
         public int[] shuffled = new int[7];
+        public int actual = 16;
 
         public int[] correctAnswer()
         {
@@ -51,24 +52,83 @@ namespace Game.Logic
 
         }
 
-        public void SetUpCoordinates(double x, double y)
+        public void SetUpCoordinates(int[] corr,double x, double y)
         {
+            shuffled = corr; 
             this.x = x;
             this.y = y;
+
             GameOn();
+
         }
 
-        public void Ellenorzes(double x, double y)
+        public bool Ellenorzes(double x, double y)
         {
+                double szelesseg = area.Width / 2;
+
+                if (y-(area.Height-150) < 150 && x- szelesseg < 400  && y > area.Height-150)
+                {
+                    actual = actual - shuffled[0];
+                }
+                else if (y - (area.Height - 300) < 150 && x - szelesseg < 400  && y > area.Height - 300)
+                {
+                    actual = actual - shuffled[1];
+                }
+                else if (y - (area.Height - 450) < 150 && x - szelesseg < 400  && y > area.Height - 450)
+                {
+                    actual = actual - shuffled[2];
+                }
+                else if (y - (area.Height - 600) < 150 && x - szelesseg < 400  && y > area.Height - 600)
+                {
+                    actual = actual - shuffled[3];
+                }
+                else if (y - (area.Height - 750) < 150 && x - szelesseg < 400 &&  y > area.Height - 750)
+                {
+                    actual = actual - shuffled[4];
+                }
+                else if (y - (area.Height - 900) < 150 && x - szelesseg < 400  && y > area.Height - 900)
+                {
+                    actual = actual - shuffled[5];
+                }
+                else if (y - (area.Height - 1050) < 150 && x - szelesseg < 400  && y > area.Height - 1050)
+                {
+                    actual = actual - shuffled[6];
+                }
+
+            if (actual == result)
+            {
+                score.ScorePoint++;
+                actual = 16;
+                result = rnd.Next(5, 15);
+                if (score.ScorePoint == 6)
+                {
+                    //NextLevel.Invoke(this, null);
+                }
+                return true;
+            }
+            else if(actual < result)
+            {
+                hp.Hp--;
+                if (hp.Hp>0)
+                {
+                    actual = 16;
+                    result = rnd.Next(5, 15);
+                    Changed.Invoke(this, null);
+                }
+                if (hp.Hp <= 0)
+                {
+                    GameOver.Invoke(this, null);
+                }
+            }
+            return false;
 
 
 
-            
         }
 
-        public void GameOn()
+        public bool GameOn()
         {
-            Ellenorzes(x, y);
+           return Ellenorzes(x, y);
         }
 
 

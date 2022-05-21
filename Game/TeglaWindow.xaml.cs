@@ -29,7 +29,7 @@ namespace Game
         {
             InitializeComponent();
 
-            time = new TimeSpan(150000000);
+            time = new TimeSpan(1500000000);
 
             timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
             {
@@ -51,13 +51,29 @@ namespace Game
         {
             logic = new TeglaLogic(logic2.hp);
             logic.GameOver += Logic_GameOver;
+            logic.Changed += Logic_Changed;
+            //logic.NextLevel += Logic_NextLevel;
             tegladisplay.SetupModel(logic);
             tegladisplay.SetupSizes(new Size(grid2.ActualWidth, grid2.ActualHeight));
             logic.SetupSizes(new System.Windows.Size((int)grid2.ActualWidth, (int)grid2.ActualHeight));
             tbHP.Text = ("Maradék élet: " + logic2.hp.Hp);
-            tbScore.Text = ("Pontjaid: " + logic2.score.ScorePoint + "/3");
+            tbScore.Text = ("Pontjaid: " + logic2.score.ScorePoint + "/6");
             tbResult.Text = ("Elérendő összeg: " + logic.result.ToString());
             tbResult.Margin = new Thickness(40, 40, 300, 70);
+        }
+
+        //private void Logic_NextLevel(object sender, EventArgs e)
+        //{
+        //    //timer.Stop();
+        //    //TeglaWindow win2 = new TeglaWindow(logic);
+        //    //win2.Show();
+        //    //this.Close();
+        //}
+
+        private void Logic_Changed(object sender, EventArgs e)
+        {
+            WindowState = WindowState.Normal;
+            WindowState = WindowState.Maximized;
         }
 
         private void Logic_GameOver(object sender, EventArgs e)
@@ -86,11 +102,14 @@ namespace Game
             var point = Mouse.GetPosition(Window.GetWindow(this));
             double x = point.X;
             double y = point.Y;
+            int[] corr = tegladisplay.corrects;
 
-            logic.SetUpCoordinates(x, y);
-
+            logic.SetUpCoordinates(corr, x, y);
+            tbResult.Text = ("Elérendő összeg: " + logic.result.ToString());
             tbHP.Text = ("Maradék élet: " + logic.hp.Hp);
-            tbScore.Text = ("Pontjaid: " + logic.score.ScorePoint + "/3");
+            tbScore.Text = ("Pontjaid: " + logic.score.ScorePoint + "/6");
+            actualScore.Text = ("Pontjaid: " + logic.actual);
+
         }
     }
 }

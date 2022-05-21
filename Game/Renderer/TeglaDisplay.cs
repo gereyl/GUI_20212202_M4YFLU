@@ -16,6 +16,7 @@ namespace Game.Renderer
         ITeglaModel model;
         Size area;
         static Random r;
+        public int[] corrects { get; set; } 
 
 
         public void SetupSizes(Size area)
@@ -110,25 +111,25 @@ namespace Game.Renderer
                 brickBrushes.Add(NegyesTeglaBrush);
 
 
-                var shuffled = model.correctAnswer();
+                corrects = model.correctAnswer();
 
                 
 
                 for (int i = 0; i < 7; i++)
                 {
-                    if (shuffled[i] == 1)
+                    if (corrects[i] == 1)
                     {
                         drawingContext.DrawRectangle(EgyesTeglaBrush, null, bricks[i]);
                     }
-                    else if (shuffled[i] == 2)
+                    else if (corrects[i] == 2)
                     {
                         drawingContext.DrawRectangle(KettesTeglaBrush, null, bricks[i]);
                     }
-                    else if (shuffled[i] == 3)
+                    else if (corrects[i] == 3)
                     {
                         drawingContext.DrawRectangle(HarmasTeglaBrush, null, bricks[i]);
                     }
-                    else if (shuffled[i] == 4)
+                    else if (corrects[i] == 4)
                     {
                         drawingContext.DrawRectangle(NegyesTeglaBrush, null, bricks[i]);
                     }

@@ -13,6 +13,7 @@
             <TextBlock Name="tbTime" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="20" Foreground="White" Background="Chocolate"/>
             <TextBlock Name="tbHP" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="20" Foreground="White" Background="Chocolate"/>
             <TextBlock Name="tbScore" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="20" Foreground="White" Background="Chocolate"/>
+            <TextBlock Name="actualScore" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="20" Foreground="White" Background="Chocolate"/>
         </StackPanel>
         <TextBlock x:Name="tbResult" VerticalAlignment="Center" HorizontalAlignment="Right"
                    FontSize="70" Foreground="White" />
