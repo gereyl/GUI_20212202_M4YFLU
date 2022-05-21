@@ -56,6 +56,8 @@ namespace Game
             logic.SetupSizes(new System.Windows.Size((int)grid2.ActualWidth, (int)grid2.ActualHeight));
             tbHP.Text = ("Maradék élet: " + logic2.hp.Hp);
             tbScore.Text = ("Pontjaid: " + logic2.score.ScorePoint + "/3");
+            tbResult.Text = ("Elérendő összeg: " + logic.result.ToString());
+            tbResult.Margin = new Thickness(40, 40, 300, 70);
         }
 
         private void Logic_GameOver(object sender, EventArgs e)

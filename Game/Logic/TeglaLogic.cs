@@ -4,9 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace Game.Logic
 {
+    //max 15
+    
     public class TeglaLogic : ITeglaModel
     {
         public event EventHandler GameOver;
@@ -17,7 +20,10 @@ namespace Game.Logic
         System.Windows.Size area;
         public HealthPoint hp;
         public Score score = new Score();
+        Random rnd = new Random();
+        public int result;
 
+        public List<Brush> brickBrushes { get; set; }
 
         public TeglaLogic()
         {
@@ -27,6 +33,7 @@ namespace Game.Logic
         {
             this.hp = hp;
             score.Reset();
+            this.result = rnd.Next(5, 15);
         }
 
         public void SetupSizes(System.Windows.Size area)

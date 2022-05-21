@@ -103,18 +103,19 @@ namespace Game.Renderer
                 brickBrushes.Add(EgyesTeglaBrush);
                 brickBrushes.Add(KettesTeglaBrush);
                 brickBrushes.Add(HarmasTeglaBrush);
+                brickBrushes.Add(EgyesTeglaBrush);
+                brickBrushes.Add(KettesTeglaBrush);
+                brickBrushes.Add(HarmasTeglaBrush);
                 brickBrushes.Add(NegyesTeglaBrush);
 
+                model.brickBrushes = brickBrushes;
 
-                int[] array = new int[7];
-                for (int i = 0; i < 7; i++)
-                {
-                    array[i] = r.Next(0,4);
-                }
+                var shuffled = brickBrushes.OrderBy(a => r.Next()).ToList();
+
 
                 for (int i = 0; i < 7; i++)
                 {
-                    drawingContext.DrawRectangle(brickBrushes[array[i]], null, bricks[i]);
+                    drawingContext.DrawRectangle(shuffled[i], null, bricks[i]);
                 }
 
 
