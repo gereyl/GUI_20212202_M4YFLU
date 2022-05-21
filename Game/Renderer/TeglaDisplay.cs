@@ -15,6 +15,8 @@ namespace Game.Renderer
     {
         ITeglaModel model;
         Size area;
+        static Random r;
+
 
         public void SetupSizes(Size area)
         {
@@ -40,21 +42,28 @@ namespace Game.Renderer
         {
             get
             {
-                return new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", "1.png"), UriKind.RelativeOrAbsolute)));
+                return new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", "2.png"), UriKind.RelativeOrAbsolute)));
             }
         }
         public Brush HarmasTeglaBrush
         {
             get
             {
-                return new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", "1.png"), UriKind.RelativeOrAbsolute)));
+                return new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", "3.png"), UriKind.RelativeOrAbsolute)));
             }
         }
         public Brush NegyesTeglaBrush
         {
             get
             {
-                return new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", "1.png"), UriKind.RelativeOrAbsolute)));
+                return new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", "4.png"), UriKind.RelativeOrAbsolute)));
+            }
+        }
+        public Brush kek
+        {
+            get
+            {
+                return new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", "bluebrick.png"), UriKind.RelativeOrAbsolute)));
             }
         }
 
@@ -69,25 +78,45 @@ namespace Game.Renderer
             {
                 drawingContext.DrawRectangle(Brushes.LightCoral, null, new Rect(0, 0, area.Width, area.Height));
                 model = new TeglaLogic();
+                r = new Random();
+
 
                 bricks = new List<Rect>();
 
-                Rect also = new Rect(area.Width / 3 - 200, area.Height - 200, 400, 200);
-                Rect masodik = new Rect(area.Width / 3 - 200, area.Height - 400, 400, 200);
-                Rect harmadik = new Rect(area.Width / 3 - 200, area.Height - 600, 400, 200);
-                Rect negyedik = new Rect(area.Width / 3 - 200, area.Height - 800, 400, 200);
-                Rect otodik = new Rect(area.Width / 3 - 200, area.Height - 1000, 400, 200);
+                Rect also = new Rect(area.Width / 3 - 200, area.Height - 150, 400, 150);
+                Rect masodik = new Rect(area.Width / 3 - 200, area.Height - 300, 400, 150);
+                Rect harmadik = new Rect(area.Width / 3 - 200, area.Height - 450, 400, 150);
+                Rect negyedik = new Rect(area.Width / 3 - 200, area.Height - 600, 400, 150);
+                Rect otodik = new Rect(area.Width / 3 - 200, area.Height - 750, 400, 150);
+                Rect hatodik = new Rect(area.Width / 3 - 200, area.Height - 900, 400, 150);
+                Rect hetedik = new Rect(area.Width / 3 - 200, area.Height - 1050, 400, 150);
 
                 bricks.Add(also);
                 bricks.Add(masodik);
                 bricks.Add(harmadik);
                 bricks.Add(negyedik);
                 bricks.Add(otodik);
+                bricks.Add(hatodik);
+                bricks.Add(hetedik);
 
-                for (int i = 0; i < bricks.Count; i++)
+                List<Brush> brickBrushes = new List<Brush>();
+                brickBrushes.Add(EgyesTeglaBrush);
+                brickBrushes.Add(KettesTeglaBrush);
+                brickBrushes.Add(HarmasTeglaBrush);
+                brickBrushes.Add(NegyesTeglaBrush);
+
+
+                int[] array = new int[7];
+                for (int i = 0; i < 7; i++)
                 {
-                    drawingContext.DrawRectangle(KettesTeglaBrush, null, bricks[i]);
+                    array[i] = r.Next(0,4);
                 }
+
+                for (int i = 0; i < 7; i++)
+                {
+                    drawingContext.DrawRectangle(brickBrushes[array[i]], null, bricks[i]);
+                }
+
 
 
             }
