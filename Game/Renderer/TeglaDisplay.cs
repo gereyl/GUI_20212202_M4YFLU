@@ -29,13 +29,35 @@ namespace Game.Renderer
 
         }
 
-        public Brush KekTeglaBrush
+        public Brush EgyesTeglaBrush
         {
             get
             {
-                return new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", "bluebrick.png"), UriKind.RelativeOrAbsolute)));
+                return new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", "1.png"), UriKind.RelativeOrAbsolute)));
             }
         }
+        public Brush KettesTeglaBrush
+        {
+            get
+            {
+                return new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", "1.png"), UriKind.RelativeOrAbsolute)));
+            }
+        }
+        public Brush HarmasTeglaBrush
+        {
+            get
+            {
+                return new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", "1.png"), UriKind.RelativeOrAbsolute)));
+            }
+        }
+        public Brush NegyesTeglaBrush
+        {
+            get
+            {
+                return new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", "1.png"), UriKind.RelativeOrAbsolute)));
+            }
+        }
+
 
         List<Rect> bricks;
 
@@ -64,7 +86,7 @@ namespace Game.Renderer
 
                 for (int i = 0; i < bricks.Count; i++)
                 {
-                    drawingContext.DrawRectangle(KekTeglaBrush, null, bricks[i]);
+                    drawingContext.DrawRectangle(KettesTeglaBrush, null, bricks[i]);
                 }
 
 
