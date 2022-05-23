@@ -11,5 +11,8 @@ namespace Game.Logic
         event EventHandler GameOver;
         event EventHandler Changed;
         public int[] correctAnswer();
+        public int Futas();
+       
+
     }
 }

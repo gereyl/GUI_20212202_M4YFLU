@@ -33,7 +33,7 @@ namespace Game
 
             timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
             {
-                //tbTime.Text = time.ToString("g");
+                tbTime.Text = time.ToString("g");
                 if (time == TimeSpan.Zero)
                 {
                     timer.Stop();
@@ -47,19 +47,26 @@ namespace Game
             this.logic2 = logic2;
         }
 
-        
+
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             logic = new MerlegLogic(logic2.hp);
             logic.GameOver += Logic_GameOver;
             logic.Changed += Logic_Changed;
+            logic.Win += Logic_Win;
             merlegdisplay.SetupModel(logic);
             merlegdisplay.SetupSizes(new Size(grid3.ActualWidth, grid3.ActualHeight));
             logic.SetupSizes(new System.Windows.Size((int)grid3.ActualWidth, (int)grid3.ActualHeight));
             tbHP.Text = ("Maradék élet: " + logic2.hp.Hp);
             tbScore.Text = ("Pontjaid: " + logic2.score.ScorePoint + "/6");
 
+        }
+
+        private void Logic_Win(object sender, EventArgs e)
+        {
+            MessageBox.Show("anyad");
+            this.Close();
         }
 
         private void Logic_Changed(object sender, EventArgs e)
@@ -99,7 +106,7 @@ namespace Game
             logic.SetUpCoordinates(corr, x, y);
             tbHP.Text = ("Maradék élet: " + logic.hp.Hp);
             tbScore.Text = ("Pontjaid: " + logic.score.ScorePoint + "/6");
-            
+
         }
     }
 }

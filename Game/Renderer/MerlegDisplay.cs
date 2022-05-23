@@ -16,6 +16,7 @@ namespace Game.Renderer
         IMerlegModel model;
         Size area;
         static Random r;
+        int szamlalo = 0;
         public int[] corrects { get; set; }
 
 
@@ -151,54 +152,50 @@ namespace Game.Renderer
 
                 corrects = model.correctAnswer();
 
+                int futas = model.Futas();
 
-
-                for (int i = 0; i < 9; i++)
+                if (corrects[futas ] == 0)
                 {
-                    if (corrects[i] == 1)
-                    {
-                        drawingContext.DrawRectangle(Level1_ant, null, new Rect(0, 0, area.Width, area.Height));
-                    }
-                    else if (corrects[i] == 2)
-                    {
-                        drawingContext.DrawRectangle(Level2_puppy, null, new Rect(0, 0, area.Width, area.Height));
-                    }
-                    else if (corrects[i] == 3)
-                    {
-                        drawingContext.DrawRectangle(Level3_puppy, null, new Rect(0, 0, area.Width, area.Height));
-
-                    }
-                    else if (corrects[i] == 4)
-                    {
-                        drawingContext.DrawRectangle(Level4_pig, null, new Rect(0, 0, area.Width, area.Height));
-
-                    }
-                    else if (corrects[i] == 5)
-                    {
-                        drawingContext.DrawRectangle(Level5_puppy, null, new Rect(0, 0, area.Width, area.Height));
-
-                    }
-                    else if (corrects[i] == 6)
-                    {
-                        drawingContext.DrawRectangle(Level6_pig, null, new Rect(0, 0, area.Width, area.Height));
-
-                    }
-                    else if (corrects[i] == 7)
-                    {
-                        drawingContext.DrawRectangle(Level7_cat, null, new Rect(0, 0, area.Width, area.Height));
-
-                    }
-                    else if (corrects[i] == 8)
-                    {
-                        drawingContext.DrawRectangle(Level8_dog, null, new Rect(0, 0, area.Width, area.Height));
-
-                    }
-                    else if (corrects[i] == 9)
-                    {
-                        drawingContext.DrawRectangle(Level9_pig, null, new Rect(0, 0, area.Width, area.Height));
-
-                    }
+                    drawingContext.DrawRectangle(Level1_ant, null, new Rect(0, 0, area.Width, area.Height));
                 }
+                else if (corrects[futas] == 1)
+                {
+                    drawingContext.DrawRectangle(Level2_puppy, null, new Rect(0, 0, area.Width, area.Height));
+                }
+                else if (corrects[futas] == 2)
+                {
+                    drawingContext.DrawRectangle(Level3_puppy, null, new Rect(0, 0, area.Width, area.Height));
+                }
+                else if (corrects[futas] == 3)
+                {
+                    drawingContext.DrawRectangle(Level4_pig, null, new Rect(0, 0, area.Width, area.Height));
+
+                }
+                else if (corrects[futas] == 4)
+                {
+                    drawingContext.DrawRectangle(Level5_puppy, null, new Rect(0, 0, area.Width, area.Height));
+
+                }
+                else if (corrects[futas] == 5)
+                {
+                    drawingContext.DrawRectangle(Level6_pig, null, new Rect(0, 0, area.Width, area.Height));
+
+                }
+                else if (corrects[futas] == 6)
+                {
+                    drawingContext.DrawRectangle(Level7_cat, null, new Rect(0, 0, area.Width, area.Height));
+
+                }
+                else if (corrects[futas] == 7)
+                {
+                    drawingContext.DrawRectangle(Level8_dog, null, new Rect(0, 0, area.Width, area.Height));
+
+                }
+                else if (corrects[futas] == 8)
+                {
+                    drawingContext.DrawRectangle(Level9_pig, null, new Rect(0, 0, area.Width, area.Height));
+                }
+
 
                 drawingContext.DrawRectangle(Ant, null, new Rect(area.Width / 5 - 100, area.Height / 8 * 6, 200, 150));
                 drawingContext.DrawRectangle(Cat, null, new Rect((area.Width / 5) * 2 - 100, area.Height / 8 * 6, 200, 150));
