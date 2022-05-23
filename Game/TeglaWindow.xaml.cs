@@ -29,7 +29,7 @@ namespace Game
         {
             InitializeComponent();
 
-            time = new TimeSpan(1500000000);
+            time = new TimeSpan(600000000);
 
             timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
             {
@@ -67,7 +67,7 @@ namespace Game
             tegladisplay.SetupSizes(new Size(grid2.ActualWidth, grid2.ActualHeight));
             logic.SetupSizes(new System.Windows.Size((int)grid2.ActualWidth, (int)grid2.ActualHeight));
             tbHP.Text = ("Maradék élet: " + logic2.hp.Hp);
-            tbScore.Text = ("Pontjaid: " + logic2.score.ScorePoint + "/5");
+            tbScore.Text = ("Pontjaid: 0/5");
             tbResult.Text = ("Elérendő összeg: " + logic.result.ToString());
             tbResult.Margin = new Thickness(40, 40, 300, 70);
         }

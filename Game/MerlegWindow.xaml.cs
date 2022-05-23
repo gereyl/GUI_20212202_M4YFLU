@@ -29,7 +29,7 @@ namespace Game
         {
             InitializeComponent();
 
-            time = new TimeSpan(1500000000);
+            time = new TimeSpan(300000000);
 
             timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
             {
@@ -59,15 +59,15 @@ namespace Game
             merlegdisplay.SetupSizes(new Size(grid3.ActualWidth, grid3.ActualHeight));
             logic.SetupSizes(new System.Windows.Size((int)grid3.ActualWidth, (int)grid3.ActualHeight));
             tbHP.Text = ("Maradék élet: " + logic2.hp.Hp);
-            tbScore.Text = ("Pontjaid: " + logic2.score.ScorePoint + "/1");
+            tbScore.Text = ("Pontjaid: 0/1");
 
         }
 
         private void Logic_Win(object sender, EventArgs e)
         {
-            MessageBox.Show("Gratulálunk!");
             timer.Stop();
             this.Close();
+            MessageBox.Show("Gratulálunk! Sikerült időben teljesítend a játékot! " + logic2.hp.Hp + " életed maradt.");
         }
 
         private void Logic_Changed(object sender, EventArgs e)
@@ -106,7 +106,7 @@ namespace Game
 
             logic.SetUpCoordinates(corr, x, y);
             tbHP.Text = ("Maradék élet: " + logic.hp.Hp);
-            tbScore.Text = ("Pontjaid: " + logic.score.ScorePoint + "/1");
+            tbScore.Text = ("Pontjaid: 0/1");
 
         }
     }
