@@ -22,7 +22,8 @@ namespace Game.Logic
         public int[] shuffled = new int[9];
         public int[] values { get; set; }
 
-        public Futasszam futasszam = new Futasszam();
+        int futasszam;
+
         public MerlegLogic()
         {
 
@@ -35,11 +36,26 @@ namespace Game.Logic
             //this.result = rnd.Next(5, 15);
         }
 
+
+        int FutasszamErtekadas()
+        {
+            if (futasszam.ToString() != null)
+            {
+                futasszam = 0;
+            }
+            else
+            {
+                futasszam++;
+            }
+            return futasszam;
+        }
+
         public int[] correctAnswer()
         {
             values = new int[9] {0, 1, 2, 3, 4, 5, 6, 7, 8 };
 
             shuffled = values.OrderBy(a => rnd.Next()).ToArray();
+           // shuffled = values;
             return shuffled;
         }
 
@@ -107,12 +123,12 @@ namespace Game.Logic
             }
 
 
-            if (correct(shuffled[futasszam.futasszam]) == chosen)
+            if (correct(shuffled[futasszam]) == chosen)
             {
-                futasszam.futasszam++;
+                futasszam++;
                 score.ScorePoint++;
                 Changed.Invoke(this, null);
-                if (score.ScorePoint == 3)
+                if (score.ScorePoint == 1)
                 {
                     Win.Invoke(this, null);
                 }
@@ -120,7 +136,7 @@ namespace Game.Logic
             }
             else
             {
-                futasszam.futasszam++;
+                futasszam++;
                 hp.Hp--;
                 if (hp.Hp > 0)
                 {
@@ -140,7 +156,7 @@ namespace Game.Logic
 
         public int Futas()
         {
-            return futasszam.futasszam;
+            return FutasszamErtekadas();
         }
 
     }

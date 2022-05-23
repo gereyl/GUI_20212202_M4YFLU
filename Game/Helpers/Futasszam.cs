@@ -10,9 +10,9 @@ namespace Game.Helpers
     {
         public int futasszam { get; set; }
 
-        public Futasszam()
+        public Futasszam(int futas)
         {
-            futasszam = 0;
+            this.futasszam = futas;
         }
     }
 }

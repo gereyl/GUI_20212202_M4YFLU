@@ -59,13 +59,14 @@ namespace Game
             merlegdisplay.SetupSizes(new Size(grid3.ActualWidth, grid3.ActualHeight));
             logic.SetupSizes(new System.Windows.Size((int)grid3.ActualWidth, (int)grid3.ActualHeight));
             tbHP.Text = ("Maradék élet: " + logic2.hp.Hp);
-            tbScore.Text = ("Pontjaid: " + logic2.score.ScorePoint + "/6");
+            tbScore.Text = ("Pontjaid: " + logic2.score.ScorePoint + "/1");
 
         }
 
         private void Logic_Win(object sender, EventArgs e)
         {
             MessageBox.Show("anyad");
+            timer.Stop();
             this.Close();
         }
 
@@ -105,7 +106,7 @@ namespace Game
 
             logic.SetUpCoordinates(corr, x, y);
             tbHP.Text = ("Maradék élet: " + logic.hp.Hp);
-            tbScore.Text = ("Pontjaid: " + logic.score.ScorePoint + "/6");
+            tbScore.Text = ("Pontjaid: " + logic.score.ScorePoint + "/1");
 
         }
     }
