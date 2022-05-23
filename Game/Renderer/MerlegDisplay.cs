@@ -32,6 +32,34 @@ namespace Game.Renderer
 
         }
 
+        public Brush Ant
+        {
+            get
+            {
+                return new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", "ant.png"), UriKind.RelativeOrAbsolute)));
+            }
+        }
+        public Brush Cat
+        {
+            get
+            {
+                return new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", "cat.png"), UriKind.RelativeOrAbsolute)));
+            }
+        }
+        public Brush Piglet
+        {
+            get
+            {
+                return new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", "piglet.png"), UriKind.RelativeOrAbsolute)));
+            }
+        }
+        public Brush Puppy
+        {
+            get
+            {
+                return new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", "puppy.png"), UriKind.RelativeOrAbsolute)));
+            }
+        }
         public Brush Level1_ant
         {
             get
@@ -109,6 +137,7 @@ namespace Game.Renderer
 
                 Mapbrushes = new List<Brush>();
 
+
                 Mapbrushes.Add(Level1_ant);
                 Mapbrushes.Add(Level2_puppy);
                 Mapbrushes.Add(Level3_puppy);
@@ -119,9 +148,62 @@ namespace Game.Renderer
                 Mapbrushes.Add(Level8_dog);
                 Mapbrushes.Add(Level9_pig);
 
-                r = new Random();
 
-                drawingContext.DrawRectangle(Mapbrushes[r.Next(0, 9)], null, new Rect(0, 0, area.Width, area.Height));
+                corrects = model.correctAnswer();
+
+
+
+                for (int i = 0; i < 9; i++)
+                {
+                    if (corrects[i] == 1)
+                    {
+                        drawingContext.DrawRectangle(Level1_ant, null, new Rect(0, 0, area.Width, area.Height));
+                    }
+                    else if (corrects[i] == 2)
+                    {
+                        drawingContext.DrawRectangle(Level2_puppy, null, new Rect(0, 0, area.Width, area.Height));
+                    }
+                    else if (corrects[i] == 3)
+                    {
+                        drawingContext.DrawRectangle(Level3_puppy, null, new Rect(0, 0, area.Width, area.Height));
+
+                    }
+                    else if (corrects[i] == 4)
+                    {
+                        drawingContext.DrawRectangle(Level4_pig, null, new Rect(0, 0, area.Width, area.Height));
+
+                    }
+                    else if (corrects[i] == 5)
+                    {
+                        drawingContext.DrawRectangle(Level5_puppy, null, new Rect(0, 0, area.Width, area.Height));
+
+                    }
+                    else if (corrects[i] == 6)
+                    {
+                        drawingContext.DrawRectangle(Level6_pig, null, new Rect(0, 0, area.Width, area.Height));
+
+                    }
+                    else if (corrects[i] == 7)
+                    {
+                        drawingContext.DrawRectangle(Level7_cat, null, new Rect(0, 0, area.Width, area.Height));
+
+                    }
+                    else if (corrects[i] == 8)
+                    {
+                        drawingContext.DrawRectangle(Level8_dog, null, new Rect(0, 0, area.Width, area.Height));
+
+                    }
+                    else if (corrects[i] == 9)
+                    {
+                        drawingContext.DrawRectangle(Level9_pig, null, new Rect(0, 0, area.Width, area.Height));
+
+                    }
+                }
+
+                drawingContext.DrawRectangle(Ant, null, new Rect(area.Width / 5 - 100, area.Height / 8 * 6, 200, 150));
+                drawingContext.DrawRectangle(Cat, null, new Rect((area.Width / 5) * 2 - 100, area.Height / 8 * 6, 200, 150));
+                drawingContext.DrawRectangle(Piglet, null, new Rect(area.Width / 5 * 3 - 100, area.Height / 8 * 6, 200, 150));
+                drawingContext.DrawRectangle(Puppy, null, new Rect(area.Width / 5 * 4 - 100, area.Height / 8 * 6, 200, 150));
 
             }
         }

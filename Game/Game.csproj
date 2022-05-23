@@ -11,7 +11,9 @@
     <None Remove="Images\2.png" />
     <None Remove="Images\3.png" />
     <None Remove="Images\4.png" />
+    <None Remove="Images\ant.png" />
     <None Remove="Images\bluebrick.png" />
+    <None Remove="Images\cat.png" />
     <None Remove="Images\greenbrick.png" />
     <None Remove="Images\hatter.png" />
     <None Remove="Images\hatter2.png" />
@@ -29,8 +31,10 @@
     <None Remove="Images\Level8_dog.jpg" />
     <None Remove="Images\Level9_pig.jpg" />
     <None Remove="Images\lotusz.png" />
+    <None Remove="Images\piglet.png" />
     <None Remove="Images\piri_viri.png" />
     <None Remove="Images\pitypang.png" />
+    <None Remove="Images\puppy.png" />
     <None Remove="Images\redbirck.png" />
     <None Remove="Images\rose.png" />
     <None Remove="Images\tuzvirag.png" />
@@ -49,7 +53,13 @@
     <Content Include="Images\4.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\ant.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\bluebrick.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\cat.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\greenbrick.png">
@@ -103,10 +113,16 @@
     <Content Include="Images\lotusz.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\piglet.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\piri_viri.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\pitypang.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\puppy.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\redbirck.png">

@@ -91,12 +91,12 @@ namespace Game
 
         private void grid3_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            //var point = Mouse.GetPosition(Window.GetWindow(this));
-            //double x = point.X;
-            //double y = point.Y;
-            //int[] corr = tegladisplay.corrects;
+            var point = Mouse.GetPosition(Window.GetWindow(this));
+            double x = point.X;
+            double y = point.Y;
+            int[] corr = merlegdisplay.corrects;
 
-            //logic.SetUpCoordinates(corr, x, y);
+            logic.SetUpCoordinates(corr, x, y);
             tbHP.Text = ("Maradék élet: " + logic.hp.Hp);
             tbScore.Text = ("Pontjaid: " + logic.score.ScorePoint + "/6");
             

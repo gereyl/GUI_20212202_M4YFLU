@@ -17,6 +17,8 @@ namespace Game.Logic
         double x;
         double y;
         Random rnd = new Random();
+        public int[] shuffled = new int[7];
+        public int[] values { get; set; }
         public MerlegLogic()
         {
 
@@ -31,7 +33,10 @@ namespace Game.Logic
 
         public int[] correctAnswer()
         {
-            throw new NotImplementedException();
+            values = new int[9] { 1, 2,3,4,5,6,7,8,9 };
+
+            shuffled = values.OrderBy(a => rnd.Next()).ToArray();
+            return shuffled;
         }
 
         public void SetupSizes(System.Windows.Size area)
@@ -42,7 +47,7 @@ namespace Game.Logic
 
         public void SetUpCoordinates(int[] corr, double x, double y)
         {
-            //shuffled = corr;
+            shuffled = corr;
             this.x = x;
             this.y = y;
 
