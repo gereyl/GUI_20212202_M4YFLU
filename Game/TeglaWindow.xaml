@@ -26,5 +26,6 @@
             <Rectangle x:Name="rect6" Visibility="Hidden" Fill="LightCoral" VerticalAlignment="Top" Height="150"/>
             <Rectangle x:Name="rect7" Visibility="Hidden" Fill="LightCoral" VerticalAlignment="Top" Height="150"/>
         </StackPanel>
+        <TextBlock Name="guide" HorizontalAlignment="Center" Height="30" VerticalAlignment="Top" Margin="5" FontSize="20" Foreground="White" Background="Chocolate" Text="Kattintson úgy az eltűnő téglalapokra, hogy a maradékok összege megegyezzen az elvárttal!"/>
     </Grid>
 </Window>

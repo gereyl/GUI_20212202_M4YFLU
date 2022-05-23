@@ -15,5 +15,6 @@
             <TextBlock Name="tbHP" HorizontalAlignment="Center" FontSize="20" Foreground="White" Background="Chocolate"/>
             <TextBlock Name="tbScore" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Foreground="White" Background="Chocolate"/>
         </StackPanel>
+        <TextBlock Name="guide" HorizontalAlignment="Center" Height="40" VerticalAlignment="Top" Margin="10" FontSize="30" Foreground="White" Background="Chocolate" Text="Kattintson a felső sorban arra a virágra, amelyet lát az alsók közt is!"/>
     </Grid>
 </Window>

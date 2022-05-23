@@ -65,7 +65,7 @@ namespace Game
 
         private void Logic_Win(object sender, EventArgs e)
         {
-            MessageBox.Show("anyad");
+            MessageBox.Show("Gratulálunk!");
             timer.Stop();
             this.Close();
         }
