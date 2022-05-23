@@ -27,6 +27,8 @@ namespace Game
         TimeSpan time;
         public MerlegWindow(TeglaLogic logic2)
         {
+            InitializeComponent();
+
             time = new TimeSpan(1500000000);
 
             timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
@@ -36,7 +38,7 @@ namespace Game
                 {
                     timer.Stop();
                     //MessageBox.Show("Lejárt az időd!");
-                    //Logic_GameOver(this, null);
+                    Logic_GameOver(this, null);
                 }
                 time = time.Add(TimeSpan.FromSeconds(-1));
             }, Application.Current.Dispatcher);
@@ -45,14 +47,7 @@ namespace Game
             this.logic2 = logic2;
         }
 
-        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            if (logic != null)
-            {
-                merlegdisplay.SetupSizes(new Size(grid3.ActualWidth, grid3.ActualHeight));
-                logic.SetupSizes(new System.Windows.Size((int)grid3.ActualWidth, (int)grid3.ActualHeight));
-            }
-        }
+        
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -83,7 +78,16 @@ namespace Game
             }
         }
 
-        
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            if (logic != null)
+            {
+                merlegdisplay.SetupSizes(new Size(grid3.ActualWidth, grid3.ActualHeight));
+                logic.SetupSizes(new System.Windows.Size((int)grid3.ActualWidth, (int)grid3.ActualHeight));
+            }
+        }
+
+
 
         private void grid3_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {

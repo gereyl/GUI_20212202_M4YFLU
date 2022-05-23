@@ -52,7 +52,7 @@ namespace Game
             logic = new TeglaLogic(logic2.hp);
             logic.GameOver += Logic_GameOver;
             logic.Changed += Logic_Changed;
-            logic.NextLevel += Logic_NextLevel;
+            logic.NextLevel2 += Logic_NextLevel2;
             tegladisplay.SetupModel(logic);
             tegladisplay.SetupSizes(new Size(grid2.ActualWidth, grid2.ActualHeight));
             logic.SetupSizes(new System.Windows.Size((int)grid2.ActualWidth, (int)grid2.ActualHeight));
@@ -62,7 +62,7 @@ namespace Game
             tbResult.Margin = new Thickness(40, 40, 300, 70);
         }
 
-        private void Logic_NextLevel(object sender, EventArgs e)
+        private void Logic_NextLevel2(object sender, EventArgs e)
         {
             timer.Stop();
             MerlegWindow win3 = new MerlegWindow(logic);

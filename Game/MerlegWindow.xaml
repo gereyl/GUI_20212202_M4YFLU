@@ -4,11 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Game"
-        xmlns:ren="clr-namespace:Game.Renderer"
+        xmlns:ren2="clr-namespace:Game.Renderer"
         mc:Ignorable="d"
         Title="MerlegWindow" Height="450" Width="800" SizeChanged="Window_SizeChanged" Loaded="Window_Loaded" WindowState="Maximized" WindowStyle="None">
     <Grid x:Name="grid3" MouseLeftButtonDown="grid3_MouseLeftButtonDown">
-        <ren:MerlegDisplay x:Name="merlegdisplay"/>
+        <ren2:MerlegDisplay x:Name="merlegdisplay"/>
         <StackPanel VerticalAlignment="Center">
             <TextBlock Name="tbTime" HorizontalAlignment="Center" FontSize="20" Foreground="White" Background="Chocolate"/>
             <TextBlock Name="tbHP" HorizontalAlignment="Center" FontSize="20" Foreground="White" Background="Chocolate"/>

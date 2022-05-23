@@ -15,7 +15,7 @@ namespace Game.Logic
     {
         public event EventHandler GameOver;
         public event EventHandler Changed;
-        public event EventHandler NextLevel;
+        public event EventHandler NextLevel2;
         double x;
         double y;
         System.Windows.Size area;
@@ -114,7 +114,7 @@ namespace Game.Logic
                 t = new bool[7];
                 if (score.ScorePoint == 1)
                 {
-                    NextLevel.Invoke(this, null);
+                    NextLevel2.Invoke(this, null);
                 }
                 return true;
             }

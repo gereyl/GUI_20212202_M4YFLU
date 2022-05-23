@@ -39,27 +39,6 @@ namespace Game.Renderer
                 return new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", "Level1_ant.png"), UriKind.RelativeOrAbsolute)));
             }
         }
-        //public Brush KettesTeglaBrush
-        //{
-        //    get
-        //    {
-        //        return new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", "2.png"), UriKind.RelativeOrAbsolute)));
-        //    }
-        //}
-        //public Brush HarmasTeglaBrush
-        //{
-        //    get
-        //    {
-        //        return new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", "3.png"), UriKind.RelativeOrAbsolute)));
-        //    }
-        //}
-        //public Brush NegyesTeglaBrush
-        //{
-        //    get
-        //    {
-        //        return new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", "4.png"), UriKind.RelativeOrAbsolute)));
-        //    }
-        //}
 
 
 
@@ -67,15 +46,14 @@ namespace Game.Renderer
         {
             base.OnRender(drawingContext);
 
-            if (area.Width > 0 && area.Height > 0 && model != null)
-            {
+            
                 drawingContext.DrawRectangle(AntBrush, null, new Rect(0, 0, area.Width, area.Height));
                 model = new MerlegLogic();
 
 
                 //r = new Random();
 
-            }
+            
         }
     }
 }
