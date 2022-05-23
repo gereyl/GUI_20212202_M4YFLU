@@ -18,7 +18,16 @@
     <None Remove="Images\kek.png" />
     <None Remove="Images\koszoru.png" />
     <None Remove="Images\level.png" />
+    <None Remove="Images\Level1_ant.jpg" />
     <None Remove="Images\Level1_ant.png" />
+    <None Remove="Images\Level2_puppy.jpg" />
+    <None Remove="Images\Level3_puppy.jpg" />
+    <None Remove="Images\Level4_pig.jpg" />
+    <None Remove="Images\Level5_puppy.jpg" />
+    <None Remove="Images\Level6_pig.jpg" />
+    <None Remove="Images\Level7_cat.jpg" />
+    <None Remove="Images\Level8_dog.jpg" />
+    <None Remove="Images\Level9_pig.jpg" />
     <None Remove="Images\lotusz.png" />
     <None Remove="Images\piri_viri.png" />
     <None Remove="Images\pitypang.png" />
@@ -61,7 +70,34 @@
     <Content Include="Images\level.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\Level1_ant.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\Level1_ant.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Level2_puppy.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Level3_puppy.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Level4_pig.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Level5_puppy.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Level6_pig.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Level7_cat.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Level8_dog.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Level9_pig.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\lotusz.png">

@@ -79,7 +79,7 @@ namespace Game.Logic
             if ((x - correctX) < 100 && (y - correctY) < 100 && x > correctX && y > correctY)
             {
                 score.ScorePoint++;
-                if (score.ScorePoint == 3)
+                if (score.ScorePoint == 1)
                 {
                     NextLevel.Invoke(this, null);
                 }

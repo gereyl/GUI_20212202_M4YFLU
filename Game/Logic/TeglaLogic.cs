@@ -112,7 +112,7 @@ namespace Game.Logic
                 result = rnd.Next(5, 15);
                 Changed.Invoke(this, null);
                 t = new bool[7];
-                if (score.ScorePoint == 3)
+                if (score.ScorePoint == 1)
                 {
                     NextLevel2.Invoke(this, null);
                 }
