@@ -40,6 +40,16 @@ namespace Game
                     //MessageBox.Show("Lejárt az időd!");
                     Logic_GameOver(this, null);
                 }
+                if (logic.actual == 16)
+                {
+                    rect1.Visibility = Visibility.Hidden;
+                    rect2.Visibility = Visibility.Hidden;
+                    rect3.Visibility = Visibility.Hidden;
+                    rect4.Visibility = Visibility.Hidden;
+                    rect5.Visibility = Visibility.Hidden;
+                    rect6.Visibility = Visibility.Hidden;
+                    rect7.Visibility = Visibility.Hidden;
+                }
                 time = time.Add(TimeSpan.FromSeconds(-1));
             }, Application.Current.Dispatcher);
 
@@ -72,8 +82,12 @@ namespace Game
 
         private void Logic_Changed(object sender, EventArgs e)
         {
+
             WindowState = WindowState.Normal;
             WindowState = WindowState.Maximized;
+            
+           
+
         }
 
         private void Logic_GameOver(object sender, EventArgs e)
@@ -95,6 +109,7 @@ namespace Game
                 tegladisplay.SetupSizes(new Size(grid2.ActualWidth, grid2.ActualHeight));
                 logic.SetupSizes(new System.Windows.Size((int)grid2.ActualWidth, (int)grid2.ActualHeight));
             }
+
         }
 
         private void grid2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -107,8 +122,41 @@ namespace Game
             logic.SetUpCoordinates(corr, x, y);
             tbResult.Text = ("Elérendő összeg: " + logic.result.ToString());
             tbHP.Text = ("Maradék élet: " + logic.hp.Hp);
-            tbScore.Text = ("Pontjaid: " + logic.score.ScorePoint + "/1");
+            tbScore.Text = ("Pontjaid: " + logic.score.ScorePoint + "/3");
             actualScore.Text = ("Pontjaid: " + logic.actual);
+
+            
+
+            if (x < this.ActualWidth / 3 + 200 && x > this.ActualWidth / 3 - 200 && y < this.ActualHeight - 900 && y > ActualHeight - 1050)
+            {
+                rect1.Visibility = Visibility.Visible;
+            }
+            else if (x < this.ActualWidth / 3 + 200 && x > this.ActualWidth / 3 - 200 && y < this.ActualHeight - 750 && y > ActualHeight - 900)
+            {
+                rect2.Visibility = Visibility.Visible;
+            }
+            else if (x < this.ActualWidth / 3 + 200 && x > this.ActualWidth / 3 - 200 && y < this.ActualHeight - 600 && y > ActualHeight - 750)
+            {
+                rect3.Visibility = Visibility.Visible;
+            }
+            else if (x < this.ActualWidth / 3 + 200 && x > this.ActualWidth / 3 - 200 && y < this.ActualHeight - 450 && y > ActualHeight - 600)
+            {
+                rect4.Visibility = Visibility.Visible;
+            }
+            else if (x < this.ActualWidth / 3 + 200 && x > this.ActualWidth / 3 - 200 && y < this.ActualHeight - 300 && y > ActualHeight - 450)
+            {
+                rect5.Visibility = Visibility.Visible;
+            }
+            else if (x < this.ActualWidth / 3 + 200 && x > this.ActualWidth / 3 - 200 && y < this.ActualHeight - 150 && y > ActualHeight - 300)
+            {
+                rect6.Visibility = Visibility.Visible;
+            }
+            else if (x < this.ActualWidth / 3 + 200 && x > this.ActualWidth / 3 - 200 && y < this.ActualHeight && y > ActualHeight - 150)
+            {
+                rect7.Visibility = Visibility.Visible;
+            }
+
+
 
         }
     }

@@ -17,5 +17,14 @@
         </StackPanel>
         <TextBlock x:Name="tbResult" VerticalAlignment="Center" HorizontalAlignment="Right"
                    FontSize="70" Foreground="White" />
+        <StackPanel x:Name="sp" HorizontalAlignment="Left" Width="1000" Margin="0,25,0,0">
+            <Rectangle x:Name="rect1" Visibility="Hidden" Fill="LightCoral" VerticalAlignment="Top" Height="150"/>
+            <Rectangle x:Name="rect2" Visibility="Hidden" Fill="LightCoral" VerticalAlignment="Top" Height="150"/>
+            <Rectangle x:Name="rect3" Visibility="Hidden" Fill="LightCoral" VerticalAlignment="Top" Height="150"/>
+            <Rectangle x:Name="rect4" Visibility="Hidden" Fill="LightCoral" VerticalAlignment="Top" Height="150"/>
+            <Rectangle x:Name="rect5" Visibility="Hidden" Fill="LightCoral" VerticalAlignment="Top" Height="150"/>
+            <Rectangle x:Name="rect6" Visibility="Hidden" Fill="LightCoral" VerticalAlignment="Top" Height="150"/>
+            <Rectangle x:Name="rect7" Visibility="Hidden" Fill="LightCoral" VerticalAlignment="Top" Height="150"/>
+        </StackPanel>
     </Grid>
 </Window>
