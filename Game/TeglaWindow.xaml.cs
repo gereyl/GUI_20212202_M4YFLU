@@ -65,8 +65,8 @@ namespace Game
         private void Logic_NextLevel(object sender, EventArgs e)
         {
             timer.Stop();
-            MerlegWindow win2 = new MerlegWindow(logic);
-            win2.Show();
+            MerlegWindow win3 = new MerlegWindow(logic);
+            win3.Show();
             this.Close();
         }
 
@@ -107,7 +107,7 @@ namespace Game
             logic.SetUpCoordinates(corr, x, y);
             tbResult.Text = ("Elérendő összeg: " + logic.result.ToString());
             tbHP.Text = ("Maradék élet: " + logic.hp.Hp);
-            tbScore.Text = ("Pontjaid: " + logic.score.ScorePoint + "/6");
+            tbScore.Text = ("Pontjaid: " + logic.score.ScorePoint + "/1");
             actualScore.Text = ("Pontjaid: " + logic.actual);
 
         }

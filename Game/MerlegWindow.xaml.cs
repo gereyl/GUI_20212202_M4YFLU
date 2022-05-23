@@ -64,8 +64,7 @@ namespace Game
             logic.SetupSizes(new System.Windows.Size((int)grid3.ActualWidth, (int)grid3.ActualHeight));
             tbHP.Text = ("Maradék élet: " + logic2.hp.Hp);
             tbScore.Text = ("Pontjaid: " + logic2.score.ScorePoint + "/6");
-            //tbResult.Text = ("Elérendő összeg: " + logic.result.ToString());
-            //tbResult.Margin = new Thickness(40, 40, 300, 70);
+
         }
 
         private void Logic_Changed(object sender, EventArgs e)
@@ -84,26 +83,19 @@ namespace Game
             }
         }
 
-        //private void Logic_NextLevel(object sender, EventArgs e)
-        //{
-        //    //timer.Stop();
-        //    //TeglaWindow win2 = new TeglaWindow(logic);
-        //    //win2.Show();
-        //    //this.Close();
-        //}
+        
 
         private void grid3_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            var point = Mouse.GetPosition(Window.GetWindow(this));
-            double x = point.X;
-            double y = point.Y;
+            //var point = Mouse.GetPosition(Window.GetWindow(this));
+            //double x = point.X;
+            //double y = point.Y;
             //int[] corr = tegladisplay.corrects;
 
-            /*logic.SetUpCoordinates(corr, x, y);
-            tbResult.Text = ("Elérendő összeg: " + logic.result.ToString());
+            //logic.SetUpCoordinates(corr, x, y);
             tbHP.Text = ("Maradék élet: " + logic.hp.Hp);
             tbScore.Text = ("Pontjaid: " + logic.score.ScorePoint + "/6");
-            actualScore.Text = ("Pontjaid: " + logic.actual);*/
+            
         }
     }
 }

@@ -10,10 +10,9 @@
     <Grid x:Name="grid3" MouseLeftButtonDown="grid3_MouseLeftButtonDown">
         <ren:MerlegDisplay x:Name="merlegdisplay"/>
         <StackPanel VerticalAlignment="Center">
-            <TextBlock Name="tbTime" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="20" Foreground="White" Background="Chocolate"/>
-            <TextBlock Name="tbHP" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="20" Foreground="White" Background="Chocolate"/>
-            <TextBlock Name="tbScore" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="20" Foreground="White" Background="Chocolate"/>
-            <TextBlock Name="actualScore" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="20" Foreground="White" Background="Chocolate"/>
+            <TextBlock Name="tbTime" HorizontalAlignment="Center" FontSize="20" Foreground="White" Background="Chocolate"/>
+            <TextBlock Name="tbHP" HorizontalAlignment="Center" FontSize="20" Foreground="White" Background="Chocolate"/>
+            <TextBlock Name="tbScore" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Foreground="White" Background="Chocolate"/>
         </StackPanel>
     </Grid>
 </Window>
