@@ -43,7 +43,7 @@ namespace Game.Logic
         public TeglaLogic(HealthPoint hp)
         {
             this.hp = hp;
-            score.Reset();
+            //score.Reset();
             this.result = rnd.Next(5, 15);
         }
 
@@ -74,35 +74,36 @@ namespace Game.Logic
                 t[0] = true;
             }
             else if (y - (area.Height - 300) < 150 && x - szelesseg < 400 && y > area.Height - 300 && t[1] == false)
-                {
-                    actual = actual - shuffled[1];
+            {
+                actual = actual - shuffled[1];
                 t[1] = true;
-                }
-                else if (y - (area.Height - 450) < 150 && x - szelesseg < 400  && y > area.Height - 450 && t[2] == false)
-                {
-                    actual = actual - shuffled[2];
+            }
+            else if (y - (area.Height - 450) < 150 && x - szelesseg < 400  && y > area.Height - 450 && t[2] == false)
+            {
+                actual = actual - shuffled[2];
                 t[2] = true;
-                }
-                else if (y - (area.Height - 600) < 150 && x - szelesseg < 400  && y > area.Height - 600 && t[3] == false)
-                {
-                    actual = actual - shuffled[3];
+
+            }
+            else if (y - (area.Height - 600) < 150 && x - szelesseg < 400  && y > area.Height - 600 && t[3] == false)
+            {
+                actual = actual - shuffled[3];
                 t[3] = true;
-                }
-                else if (y - (area.Height - 750) < 150 && x - szelesseg < 400 &&  y > area.Height - 750 && t[4] == false)
-                {
-                    actual = actual - shuffled[4];
+            }
+            else if (y - (area.Height - 750) < 150 && x - szelesseg < 400 &&  y > area.Height - 750 && t[4] == false)
+            {
+                actual = actual - shuffled[4];
                 t[4] = true;
-                }
-                else if (y - (area.Height - 900) < 150 && x - szelesseg < 400  && y > area.Height - 900 && t[5] == false)
-                {
-                    actual = actual - shuffled[5];
+            }
+            else if (y - (area.Height - 900) < 150 && x - szelesseg < 400  && y > area.Height - 900 && t[5] == false)
+            {
+                actual = actual - shuffled[5];
                 t[5] = true;
-                }
-                else if (y - (area.Height - 1050) < 150 && x - szelesseg < 400  && y > area.Height - 1050 && t[6]==false)
-                {
-                    actual = actual - shuffled[6];
+            }
+            else if (y - (area.Height - 1050) < 150 && x - szelesseg < 400  && y > area.Height - 1050 && t[6]==false)
+            {
+                actual = actual - shuffled[6];
                 t[6] = true;
-                }
+            }
 
             if (actual == result)
             {

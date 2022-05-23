@@ -17,28 +17,26 @@ using System.Windows.Threading;
 namespace Game
 {
     /// <summary>
-    /// Interaction logic for TeglaWindow.xaml
+    /// Interaction logic for MerlegWindow.xaml
     /// </summary>
-    public partial class TeglaWindow : Window
+    public partial class MerlegWindow : Window
     {
-        TeglaLogic logic;
-        public ViragLogic logic2;
+        MerlegLogic logic;
+        public TeglaLogic logic2;
         DispatcherTimer timer;
         TimeSpan time;
-        public TeglaWindow(ViragLogic logic2)
+        public MerlegWindow(TeglaLogic logic2)
         {
-            InitializeComponent();
-
             time = new TimeSpan(1500000000);
 
             timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
             {
-                tbTime.Text = time.ToString("g");
+                //tbTime.Text = time.ToString("g");
                 if (time == TimeSpan.Zero)
                 {
                     timer.Stop();
                     //MessageBox.Show("Lejárt az időd!");
-                    Logic_GameOver(this, null);
+                    //Logic_GameOver(this, null);
                 }
                 time = time.Add(TimeSpan.FromSeconds(-1));
             }, Application.Current.Dispatcher);
@@ -47,27 +45,27 @@ namespace Game
             this.logic2 = logic2;
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            logic = new TeglaLogic(logic2.hp);
-            logic.GameOver += Logic_GameOver;
-            logic.Changed += Logic_Changed;
-            logic.NextLevel += Logic_NextLevel;
-            tegladisplay.SetupModel(logic);
-            tegladisplay.SetupSizes(new Size(grid2.ActualWidth, grid2.ActualHeight));
-            logic.SetupSizes(new System.Windows.Size((int)grid2.ActualWidth, (int)grid2.ActualHeight));
-            tbHP.Text = ("Maradék élet: " + logic2.hp.Hp);
-            tbScore.Text = ("Pontjaid: " + logic2.score.ScorePoint + "/6");
-            tbResult.Text = ("Elérendő összeg: " + logic.result.ToString());
-            tbResult.Margin = new Thickness(40, 40, 300, 70);
+            if (logic != null)
+            {
+                merlegdisplay.SetupSizes(new Size(grid3.ActualWidth, grid3.ActualHeight));
+                logic.SetupSizes(new System.Windows.Size((int)grid3.ActualWidth, (int)grid3.ActualHeight));
+            }
         }
 
-        private void Logic_NextLevel(object sender, EventArgs e)
+        private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            timer.Stop();
-            MerlegWindow win2 = new MerlegWindow(logic);
-            win2.Show();
-            this.Close();
+            logic = new MerlegLogic(logic2.hp);
+            logic.GameOver += Logic_GameOver;
+            logic.Changed += Logic_Changed;
+            merlegdisplay.SetupModel(logic);
+            merlegdisplay.SetupSizes(new Size(grid3.ActualWidth, grid3.ActualHeight));
+            logic.SetupSizes(new System.Windows.Size((int)grid3.ActualWidth, (int)grid3.ActualHeight));
+            tbHP.Text = ("Maradék élet: " + logic2.hp.Hp);
+            tbScore.Text = ("Pontjaid: " + logic2.score.ScorePoint + "/6");
+            //tbResult.Text = ("Elérendő összeg: " + logic.result.ToString());
+            //tbResult.Margin = new Thickness(40, 40, 300, 70);
         }
 
         private void Logic_Changed(object sender, EventArgs e)
@@ -86,30 +84,26 @@ namespace Game
             }
         }
 
+        //private void Logic_NextLevel(object sender, EventArgs e)
+        //{
+        //    //timer.Stop();
+        //    //TeglaWindow win2 = new TeglaWindow(logic);
+        //    //win2.Show();
+        //    //this.Close();
+        //}
 
-
-        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            if (logic != null)
-            {
-                tegladisplay.SetupSizes(new Size(grid2.ActualWidth, grid2.ActualHeight));
-                logic.SetupSizes(new System.Windows.Size((int)grid2.ActualWidth, (int)grid2.ActualHeight));
-            }
-        }
-
-        private void grid2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void grid3_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             var point = Mouse.GetPosition(Window.GetWindow(this));
             double x = point.X;
             double y = point.Y;
-            int[] corr = tegladisplay.corrects;
+            //int[] corr = tegladisplay.corrects;
 
-            logic.SetUpCoordinates(corr, x, y);
+            /*logic.SetUpCoordinates(corr, x, y);
             tbResult.Text = ("Elérendő összeg: " + logic.result.ToString());
             tbHP.Text = ("Maradék élet: " + logic.hp.Hp);
             tbScore.Text = ("Pontjaid: " + logic.score.ScorePoint + "/6");
-            actualScore.Text = ("Pontjaid: " + logic.actual);
-
+            actualScore.Text = ("Pontjaid: " + logic.actual);*/
         }
     }
 }
